@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <title>My Site – CV</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    object {
+      width: 100%;
+      min-height: 1000px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,20 +23,19 @@
   </nav>
 </header>
 
-
 <main>
-  <h1>Curriculum Vitae / Résumé </h1>
+  <h1>Curriculum Vitae / Résumé</h1>
 
+  <!-- Responsive PDF embed -->
   <object data="cv.pdf"
           type="application/pdf"
-          width="100%"  
-          min-height: 1000px;
+          width="100%">
+    <!-- Fallback for browsers that block inline PDFs -->
     <p>Your browser can’t display PDF files.  
        <a href="cv.pdf">Download my CV instead.</a>
     </p>
   </object>
 </main>
-
 
 <footer>© 2025 Jet Shand-Pease</footer>
 </body>

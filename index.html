@@ -2,9 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Site – Home</title>
+  <title>Jet Shand-Pease – Home</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="scripts/main.js"></script>
+  <style>
+    /* Base reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: 500;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover {
+      color: #ff9800;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .recent-posts {
+      margin-top: 3rem;
+    }
+
+    ul#recent-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul#recent-list li {
+      margin-bottom: 1rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .intro h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,18 +113,17 @@
 <main>
   <section class="intro">
     <h1>Hello, I'm Jet Shand-Pease.</h1>
-    <p>I’m a recent Mathematics graduate (BSc) from the University of Auckland - a Top 40 global university and my home until I graduated. I’ve recently moved to London (holding British citizenship) and I’m incredibly keen to start my career in quantitative trading or research.
+    <p>I’m a recent Mathematics graduate (BSc) from the University of Auckland – a Top 40 global university and my academic home until graduation. I’ve recently moved to London (holding British citizenship) and I’m incredibly keen to start my career in quantitative trading or research.</p>
 
+    <p>I’m open to any opportunity – be it a graduate role, internship, or even unpaid work experience – that gives me a chance to gain hands-on exposure and grow. I’m more than willing to start anywhere, even the mailroom, if it helps me learn from the best.</p>
 
-I’m eager to find any opportunity - whether that’s a graduate position, internship, or even unpaid work experience - that would allow me to gain hands-on exposure and build my career from the ground up. I’m more than willing to start anywhere - even the mailroom - if it helps me get a foot in the door and learn from the best.
-
-
-Since graduating, I’ve been self-studying Python, financial mathematics, and quantitative trading strategies through industry-recommended resources. Without the usual careers pipelines from a UK university, I’m proactively doing everything I can to upskill and position myself for success.</p>
+    <p>Since graduating, I’ve been self-studying Python, financial mathematics, and quantitative strategies through industry-recognized resources. Without the traditional UK university pipelines, I’ve taken a proactive approach to upskill and prepare myself for success.</p>
   </section>
 
   <section class="recent-posts">
-    <h2>Recent posts & projects</h2>
-    <ul id="recent-list"></ul>
+    <h2>Recent Posts & Projects</h2>
+    <ul id="recent-list">
+    </ul>
   </section>
 </main>
 

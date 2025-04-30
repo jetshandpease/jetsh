@@ -6,4 +6,9 @@ body {font-family: system-ui, sans-serif; margin: 0; color: #333;}
 main {padding: 2rem; margin: 0 auto;}
 footer {padding: 1rem; text-align: center; font-size: 0.9rem; color: #666; border-top: 1px solid #e0e0e0; margin-top: 4rem;}
 h1, h2 {margin-top: 0;}
+.post-list{list-style:none;padding:0;margin-top:1rem}
+.post-list li{margin-bottom:1rem;padding:1rem;border-radius:8px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+.post-list a{font-weight:600;color:#06c;text-decoration:none}
+.post-list a:hover{text-decoration:underline}
+.post-list small{display:inline-block;margin-top:.25rem;color:#666;font-size:.9rem}
 

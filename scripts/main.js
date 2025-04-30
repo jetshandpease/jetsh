@@ -5,21 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data/posts.json')
     .then(resp => resp.json())
     .then(items => {
-      items.sort((a,b) => new Date(b.date) - new Date(a.date));
-      const recent = items.slice(0,5);
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const recent = items.slice(0, 5);
       recent.forEach(item => {
-  const dateStr = new Date(item.date).toLocaleDateString(undefined, {
-    year: 'numeric', month: 'long', day: 'numeric'
-  });
+        const dateStr = new Date(item.date).toLocaleDateString(undefined, {
+          year: 'numeric', month: 'long', day: 'numeric'
+        });
 
-  const li = document.createElement('li');
-  li.innerHTML = `
-    <a href="${item.url}">${item.title}</a> 
-    <small>(${item.type} – ${dateStr})</small>
-  `;
-  list.appendChild(li);
-});
-
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="${item.url}">${item.title}</a> 
+          <small>(${item.type} – ${dateStr})</small>
+        `;
         list.appendChild(li);
       });
     })

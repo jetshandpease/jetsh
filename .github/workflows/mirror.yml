@@ -1,4 +1,4 @@
-name: Mirror to jet (shandpease.com)
+name: the cloner
 
 on:
   push:
@@ -8,29 +8,31 @@ jobs:
   sync:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0            
-          persist-credentials: false  
+    strategy:
+      matrix:
+        mirror:
+          - repo: "jetshandpease/jet"
+            cname: "shandpease.com"
+          - repo: "jetshandpease/shandpea"
+            cname: "shandpea.se"
 
-      - name: Set mirror CNAME
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set CNAME for ${{ matrix.mirror.cname }}
         run: |
           git config user.email "actions@github.com"
           git config user.name  "GitHub Action"
-        
-          echo "shandpease.com" > CNAME
+          echo "${{ matrix.mirror.cname }}" > CNAME
           git add CNAME
-          git commit -m "Mirror: CNAME fix" --allow-empty
+          git commit -m "Mirror: set CNAME to ${{ matrix.mirror.cname }}" --allow-empty
 
-      - name: Push to mirror repo
+      - name: Push to ${{ matrix.mirror.repo }}
         env:
           PAT: ${{ secrets.MIRROR_PAT }}
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name  "GitHub Action"
-          
-          git remote add mirror https://x-access-token:${PAT}@github.com/jetshandpease/jet.git
-          
+          git remote add mirror https://x-access-token:${PAT}@github.com/${{ matrix.mirror.repo }}.git
           git push --force --follow-tags mirror HEAD:main

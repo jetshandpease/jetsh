@@ -13,7 +13,7 @@ jobs:
         mirror:
           - repo: "jetshandpease/jet"
             cname: "shandpease.com"
-          - repo: "jetshandpease/shandpea"
+          - repo: "jetshandpease/jetsh"
             cname: "shandpea.se"
 
     steps:

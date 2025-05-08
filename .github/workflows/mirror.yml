@@ -1,0 +1,27 @@
+name: Mirror to jet (shandpease.com)
+
+on:
+  push:
+    branches: [ main ]          
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0            
+          persist-credentials: false  
+
+      - name: Push to mirror repo
+        env:
+          PAT: ${{ secrets.MIRROR_PAT }}
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name  "GitHub Action"
+          
+          git remote add mirror https://x-access-token:${PAT}@github.com/jetshandpease/jet.git
+          
+          git push --force --follow-tags mirror HEAD:main

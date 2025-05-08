@@ -15,6 +15,12 @@ jobs:
           fetch-depth: 0            
           persist-credentials: false  
 
+      - name: Set mirror CNAME
+        run: |
+          echo "shandpease.com" > CNAME
+          git add CNAME
+          git commit -m "Mirror: CNAME fix" --allow-empty
+    
       - name: Push to mirror repo
         env:
           PAT: ${{ secrets.MIRROR_PAT }}
